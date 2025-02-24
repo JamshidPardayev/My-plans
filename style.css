@@ -125,6 +125,21 @@ h2{
 .myPlans p {
     font-size: 18px;
 }
+.planTop{
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+}
+.planTop .bx-x-circle{
+    font-size: 30px;
+    border-radius: 50%;
+    color: white;
+}
+.planTop .bx-x-circle:hover{
+    color: #000000;
+    transition: .5s;
+    cursor: pointer;
+}
 .myPlans i{
     text-align: center;
     align-content: center;

@@ -56,9 +56,13 @@ function create(){
 })();
 
 function closeOpen(index){
-
     users[index].completed = !users[index].completed;
-    localStorage.setItem("usersKey", JSON.stringify(users)); // Save updated state
+    localStorage.setItem("usersKey", JSON.stringify(users));
+    read();
+}
+function deletePlan(index) {
+    users.splice(index, 1);
+    localStorage.setItem("usersKey", JSON.stringify(users));
     read();
 }
 function read() {
@@ -67,7 +71,10 @@ function read() {
     users.map((user, index) => {
         myPlans.innerHTML += `
         <div class="plan" style="background-color: ${user.completed ? 'green' : 'red'};">
-            <p>${index + 1}</p>
+            <div class="planTop">
+                <p>${index + 1}</p>
+                <p onclick="deletePlan(${index})" class='bx bx-x-circle'</p>
+            </div>
             <h3>${user.plan}</h3>
             <p>${user.completed ? 'Vazifa bajarilgan!' : 'Bu vazifani qildizmi?'}</p>
             <p>${today}</p>
